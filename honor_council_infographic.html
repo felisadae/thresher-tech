@@ -1,0 +1,37 @@
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['treemap']}]}"></script>
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+<script type = "text/javascript">
+
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = google.visualization.arrayToDataTable([
+  ['Violation',                       'Parent',   'Cases (size)',      '(color)'],
+  ['Total Cases',                      null,                0,                 0],
+  ['No Violation: 34',                'Total Cases',       34,                 0],
+  ['In Violation: 53',                'Total Cases',       53,                 5],
+  ['Letter of Reprimand: 7',   	      'In Violation: 53',  	7,                 3],
+  ['1/3 Letter Grade Reduction: 1',   'In Violation: 53', 	1,                 5],
+  ['1 Letter Grade Reduction: 12',    'In Violation: 53',  12,                 7],
+  ['2 Letter Grade Reduction: 9',     'In Violation: 53',   9,                 9],
+  ['3 Letter Grade Reduction: 5',     'In Violation: 53',   5,                11],
+  ['F in Course: 5',       			      'In Violation: 53',   5,                13],
+  ['F in Course and 1 Semester Suspension: 3',        'In Violation: 53',      3,   15],
+  ['F in Course and 2 Semester Suspension: 8',        'In Violation: 53',      8,   17],
+  ['Expulsion: 1',                    'In Violation: 53',               1,    20]
+  ]);
+
+  tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+  tree.draw(data, {
+    minColor: '#9CF',
+    midColor: '#F96',
+    maxColor: '#C60',
+    headerHeight: 15,
+    fontSize: 20,
+    fontColor: 'black',
+    showScale: true
+  });
+
+ }
+</script>
