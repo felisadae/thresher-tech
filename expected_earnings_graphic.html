@@ -1,6 +1,8 @@
+<html>  
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <div id="chart_div"></div>
-      
+
+<script type="text/javascript">      
 google.load('visualization', '1', {packages: ['corechart', 'bar']});
 google.setOnLoadCallback(drawMultSeries);
 
@@ -43,3 +45,5 @@ function drawMultSeries() {
       var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
+</script>
+</html>
