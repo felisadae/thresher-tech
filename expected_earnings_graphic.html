@@ -1,0 +1,45 @@
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <div id="chart_div"></div>
+      
+google.load('visualization', '1', {packages: ['corechart', 'bar']});
+google.setOnLoadCallback(drawMultSeries);
+
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable([
+        ['City', "Earnings", {role: 'style'}],
+        ['Washington & Lee', 22378, 'color: green; stroke-width: 5'],
+        ['Harvard', 12734, "color: green; stroke-width: 5"],
+        ['MIT', 8184, 'color: green; stroke-width: 5'],
+        ['Univ of Chicago', -4396, 'color: rgb(183,0,0); stroke-width: 5'],
+        ['Yale', -9590, 'color: rgb(183,0,0); stroke-width: 5'],
+        ['Rice', -10267, 'color: rgb(183,0,0); stroke-width: 5'], 
+      ]);
+
+      var options = {
+        title: "Difference Between Expected and Actual Earnings",
+        chartArea: {width: '60%'},
+
+        hAxis: {
+          title: 'Actual - Expected Earnings',
+          minValue: -11000,
+          format: "currency",
+          baselineColor: 'black',
+          viewWindow: {
+              max: 25000
+          },
+
+          gridlines: {
+              color: "grey"
+          }    
+        },
+
+        vAxis: {
+          title: 'University Name'
+        },
+        
+        legend: {position: "none"}
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
