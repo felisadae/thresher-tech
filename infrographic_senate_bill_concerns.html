@@ -1,0 +1,38 @@
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <div id="chart_div"></div>
+      
+
+
+  <script type = "text/javascript">
+       google.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Do you support the proposed mandatory education course in SB#4', 'Yes', 'No'],
+          ['DUNCAN', 50, 50],
+          ['WIESS', 66, 34],
+          ['MARTEL', 60, 38],
+            ['I don not know', 0, 12]
+        ]);
+
+        var options = {
+          chartArea: {width: '50%'},
+          chart: {
+            title: 'SENATE BILL #4',
+            subtitle: 'CRITICAL THINKING IN SEXUALITY: THE CAMPUS RESPONDS'
+          },
+          bars: 'vertical', // Required for Material Bar Charts.
+        hAxis: {
+          title: 'College',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Percentage'
+        },
+          colors: ['#781C2B', '#966059']
+        };
+
+      var chart = new google.charts.Bar(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+    </script>
