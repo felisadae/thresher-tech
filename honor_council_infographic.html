@@ -1,9 +1,9 @@
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['treemap']}]}"></script>
 
-<div id="chart_div" style="width: 900px; height: 500px;"></div>
+<div id="chart_div" style="width: 100%; height: 500px; "></div>
 
 <script type = "text/javascript">
-google.load("visualization", "1.1", {packages:["bar"]});
+google.load("visualization", "1", {packages:["treemap"]});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
 var data = google.visualization.arrayToDataTable([
@@ -25,12 +25,12 @@ var data = google.visualization.arrayToDataTable([
   tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
 
   tree.draw(data, {
-    minColor: '#9CF',
-    midColor: '#F96',
-    maxColor: '#C60',
+    minColor: '#aaa',
+    midColor: '#2785A4',
+    maxColor: '#005E91',
     headerHeight: 15,
-    fontSize: 20,
-    fontColor: 'black',
+    fontSize: 12,
+    fontColor: '#333', 
     showScale: true
   });
 
